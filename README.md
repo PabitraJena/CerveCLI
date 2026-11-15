@@ -1,2 +1,2 @@
 # ServeCLI
-LAN drive server 
+Simple LAN drive server 
