@@ -1,8 +1,8 @@
-
 CC = gcc
 TARGET = a.exe
 
 CFLAGS = -Wall -Wextra -std=c11 -O2
+LDFLAGS = -lws2_32
 CPPFLAGS = -Iinclude
 
 SRCS = main.c $(wildcard src/*.c)
@@ -12,7 +12,7 @@ DEPS = $(OBJS:.o=.d)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -MMD -MP -c $< -o $@
